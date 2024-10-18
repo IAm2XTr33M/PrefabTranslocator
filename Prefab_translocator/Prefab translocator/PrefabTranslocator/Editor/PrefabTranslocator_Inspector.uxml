@@ -1,0 +1,46 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/PrefabTranslocator/Prefab_translocator/Prefab%20translocator/PrefabTranslocator/Editor/Red%20Text.uss?fileID=7433441132597879392&amp;guid=e05641df177520f4d9214d33375eee49&amp;type=3#Red Text" />
+    <ui:VisualElement name="Header" style="flex-grow: 1; background-color: rgb(40, 40, 40); flex-direction: row; width: 100%;">
+        <ui:Label text="Prefab Translocater" name="Title" style="padding-top: 10px; padding-bottom: 10px; font-size: 23px; -unity-text-align: middle-center; -unity-font-style: bold; height: 45px; width: 78%; margin-left: 45px; color: rgb(74, 192, 233); -unity-text-outline-color: rgb(74, 192, 233); -unity-text-outline-width: 1px; text-shadow: 0 0 1px rgb(74, 192, 233);" />
+        <ui:VisualElement name="Logo" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/PrefabTranslocator/Prefab_translocator/Prefab%20translocator/PrefabTranslocator/Editor/TinyRoarTransparent.png?fileID=2800000&amp;guid=41c8de12eb4ba28428eb49579dd53e49&amp;type=3#TinyRoarTransparent&apos;); width: 45px; height: 45px;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="Line" style="height: 5px; background-color: rgb(74, 192, 233); width: 100%; margin-top: 5px; margin-bottom: 5px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px;" />
+    <ui:Foldout name="SearchSettings" text="Search Settings" focusable="false" value="false">
+        <ui:Label tabindex="-1" text="Select the parent where you want to search in, &#10;select none if you wanna search in the entire scene." display-tooltip-when-elided="true" name="Information-Parennt" style="font-size: 14px; -unity-text-align: upper-left; padding-bottom: 5px; margin-top: 0;" />
+        <uie:ObjectField label="Parent Game Object" type="UnityEngine.GameObject, UnityEngine.CoreModule" name="ParentField" binding-path="parentGameObject" style="-unity-text-align: upper-left;" />
+        <ui:Label tabindex="-1" text="Select the search mode you want to use" display-tooltip-when-elided="true" name="Information-SearchMode" style="font-size: 14px; -unity-text-align: upper-left; margin-top: 20px; margin-bottom: 4px;" />
+        <uie:EnumField label="Search Mode" value="Center" binding-path="searchMode" name="SearchMode" />
+        <ui:VisualElement name="PrefabSearchVisEl" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <ui:Label tabindex="-1" text="Select the Prefab you want to search for." display-tooltip-when-elided="true" name="Information-Prefab" style="font-size: 14px; -unity-text-align: upper-left; margin-top: 20px; margin-bottom: 4px;" />
+            <uie:ObjectField label="Prefab to search" type="UnityEngine.GameObject, UnityEngine.CoreModule" name="PrefabField" binding-path="prefab" style="-unity-text-align: upper-left; margin-bottom: 10px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="TextSearchVisEl" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <ui:Label tabindex="-1" text="Type in the name of the objects you want to find" display-tooltip-when-elided="true" name="Information-Prefab" style="font-size: 14px; -unity-text-align: upper-left; margin-top: 20px; margin-bottom: 4px;" />
+            <ui:TextField picking-mode="Ignore" label="Text  to search" binding-path="searchName" name="StringField" style="-unity-text-align: upper-left; margin-bottom: 10px;" />
+        </ui:VisualElement>
+    </ui:Foldout>
+    <ui:VisualElement name="Line" style="height: 5px; background-color: rgb(74, 192, 233); width: 100%; margin-top: 5px; margin-bottom: 5px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px;" />
+    <ui:Foldout text="Search Objects" name="SerchObjects" value="false">
+        <ui:Label tabindex="-1" text="Press the button to search for all objects that match the information&#10;Afterwards double check that the list is correct by scrolling&#10;through the list and removing unnecesairy objects" display-tooltip-when-elided="true" name="Information-Button" style="font-size: 14px; -unity-text-align: upper-left; margin-top: 0; margin-bottom: 2px; text-overflow: ellipsis; width: 100%;" />
+        <ui:Button text="Search for all matching objects" display-tooltip-when-elided="true" name="FindPrefabs" style="padding-bottom: 15px; padding-top: 15px; padding-right: 12px; padding-left: 12px;" />
+        <uie:PropertyField label="All Found Objects" binding-path="objectsToTransfer" name="AllObjects" style="padding-top: 5px; padding-bottom: 5px; margin-top: 10px;" />
+    </ui:Foldout>
+    <ui:VisualElement name="Line" style="height: 5px; background-color: rgb(74, 192, 233); width: 100%; margin-top: 5px; margin-bottom: 5px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px;" />
+    <ui:Foldout text="Output settings" name="OutputSettings" value="false">
+        <ui:Label tabindex="-1" text="Select your output mode" display-tooltip-when-elided="true" name="Information-Mode" style="font-size: 14px; -unity-text-align: upper-left; margin-top: 10px; margin-bottom: 2px; text-overflow: ellipsis; width: 100%;" />
+        <uie:EnumField label="Output Mode" value="Center" binding-path="outputMode" name="OutputMode" />
+        <ui:VisualElement name="OutputTranslocateVisEl">
+            <ui:Label tabindex="-1" text="Select the target gameobject&#10;(The one you want to translocate the objects too)" display-tooltip-when-elided="true" name="Information-Target" style="font-size: 14px; -unity-text-align: upper-left; margin-top: 10px; margin-bottom: 2px; text-overflow: ellipsis; width: 100%; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+            <uie:ObjectField label="Target GameObject" type="UnityEngine.GameObject, UnityEngine.CoreModule" name="PrefabField" binding-path="targetObject" style="-unity-text-align: upper-left;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="OutputReplaceVisEl">
+            <ui:Label tabindex="-1" text="Select the replacement prefab&#10;(The prefab that you want to replace the objects with)" display-tooltip-when-elided="true" name="Information-Replace" style="font-size: 14px; -unity-text-align: upper-left; margin-top: 10px; margin-bottom: 2px; text-overflow: ellipsis; width: 100%; padding-top: 0; padding-left: 0; padding-right: 0; padding-bottom: 0;" />
+            <uie:ObjectField label="Replacement Prefab" type="UnityEngine.GameObject, UnityEngine.CoreModule" name="PrefabField" binding-path="replacePrefab" style="-unity-text-align: upper-left;" />
+        </ui:VisualElement>
+    </ui:Foldout>
+    <ui:VisualElement name="Line" style="height: 5px; background-color: rgb(74, 192, 233); width: 100%; margin-top: 5px; margin-bottom: 5px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px;" />
+    <ui:Label tabindex="-1" text="Press the button to output the selected objects&#10;using the output settings provided" display-tooltip-when-elided="true" name="Information-Button" style="font-size: 14px; -unity-text-align: upper-center; margin-top: 10px; margin-bottom: 2px; text-overflow: ellipsis; width: 100%;" />
+    <ui:Button text="Translocate" display-tooltip-when-elided="true" name="TransLocateButton" style="padding-bottom: 15px; padding-top: 15px; padding-right: 12px; padding-left: 12px;" />
+    <ui:VisualElement name="Line" style="height: 5px; background-color: rgb(74, 192, 233); width: 100%; margin-top: 5px; margin-bottom: 5px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px;" />
+    <ui:TextField picking-mode="Ignore" label="help console" name="Information" binding-path="helpText" multiline="true" readonly="true" style="padding-top: 10px; color: rgb(255, 255, 255);" />
+</ui:UXML>

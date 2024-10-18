@@ -1,0 +1,7 @@
+.unity-base-text-field__input--multiline {
+    color: rgb(255, 0, 0);
+    font-size: 13px;
+    -unity-font-style: bold;
+    -unity-text-outline-width: 0;
+    -unity-text-outline-color: rgb(255, 255, 255);
+}
